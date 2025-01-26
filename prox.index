@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brian Wilson Installing Proxmox Virtual Environment (PVE)</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: -2;
+            line-height: 1.6;
+            color: #000000;
+        }
+        header {
+            background: #007acc;
+            color: #fff;
+            padding: 1rem 0;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background: #005f99;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 1rem;
+            transition: background 0.3s;
+        }
+        nav a:hover {
+            background: #003f66;
+        }
+        section {
+            padding: -2rem;
+            max-width: 900px;
+            margin: auto;
+        }
+footer {
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: 20px; /* Adds space above the footer */
+    width: 100%; /* Makes the footer take full width */
+}
+
+footer img {
+    width: 150px; /* Adjust size as needed */
+    margin-bottom: 0px; /* Adds space between the logo and text */
+    display: block; /* Ensures the image is displayed as a block element */
+    margin-left: auto; /* Centers the image horizontally */
+    margin-right: auto; /* Centers the image horizontally */
+}
+
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Brian Wilson: Installing Proxmox Virtual Environment (PVE)</h1>
+    <img src="proxmox.jpg" alt="Proxmox Logo" style="width:100%; max-width: 600px; display:block; margin: 0 auto;">
+    <p>This installation can be done on any computer, both PC and Laptop, that meets the minimal system requirements.</p>
+    <p>If you encounter any issues or need further assistance, feel free to reach out at <a href="mailto:giga8320@gmail.com">giga8320@gmail.com</a>.</p>
+    Subject: Proxmox Install.
+</p>
+</header>
+<nav>
+    <a href="#About Proxmoxt">About Proxmox</a>
+    <a href="#Instructions">Instructions</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<section id="About Proxmox">
+    <h2>About Proxmox</h2>
+    <h2>Hello, and welcome to my Proxmox Installation tutorial websitewebsite!</h2> 
+    <p>Proxmox Virtual Environment (Proxmox VE) is an open-source platform for virtualization and container management, combining KVM (Kernel-based Virtual Machine) for full virtualization and LXC (Linux Containers) for lightweight containerization. It is designed to run multiple virtual machines and containers efficiently on a single physical host. Proxmox is ideal for home lab environments due to its robust features, including clustering for high availability, live migration of VMs, built-in ZFS support for advanced storage management, and comprehensive networking options like VLANs and virtual switches. Its intuitive web interface simplifies complex administrative tasks, while its open-source nature and lack of licensing fees make it a cost-effective solution for experimenting, learning, or deploying services in a home lab.</p>
+    <p>Proxmox allows you to run a wide range of workloads, from full virtual machines (VMs) with Linux or Windows to lightweight Linux containers (LXC) for services like web servers or databases. It's ideal for hosting homelab services such as file servers, media servers, and game servers, as well as simulating enterprise infrastructure like Active Directory or DNS. You can also use Proxmox for network virtualization with tools like pfSense or test development environments using CI/CD pipelines. Additionally, Proxmox supports cloud infrastructure, private clouds with Ceph, and Kubernetes clusters for container orchestration, making it a versatile solution for a wide variety of use cases in both learning and production environments. </p>
+<hr>
+</section>
+
+<section id="Instructions">
+    <h2>Proxmox VE Installation Guide</h2>
+    
+    <h3>Step 1: System Requirements</h3>
+    <p>Before installing Proxmox VE, ensure your hardware meets the following minimum requirements:</p>
+    <ul>
+        <li><strong>CPU:</strong> 64-bit processor with virtualization support (Intel VT/AMD-V).</li>
+        <li><strong>RAM:</strong> At least 2 GB (4 GB or more recommended).</li>
+        <li><strong>Storage:</strong> Minimum 32 GB (SSD recommended for better performance).</li>
+        <li><strong>Network:</strong> At least one network interface card (NIC). <em>Note: Proxmox does not support Wi-Fi for initial setup; a wired connection is required.</em></li>
+    </ul>
+
+    <hr>
+
+    <h3>Step 2: Download Proxmox VE ISO</h3>
+    <ol>
+        <li>Visit the <a href="https://www.proxmox.com/en/proxmox-ve" target="_blank">Proxmox VE downloads page</a>.</li>
+        <li>Download the latest Proxmox VE ISO installer.</li>
+    </ol>
+
+    <hr>
+
+    <h3>Step 3: Create a Bootable USB</h3>
+<ol>
+    <li>Use a tool such as <a href="https://rufus.ie/" target="_blank"><strong>Rufus</strong></a>, <strong>Etcher</strong>, or <strong>Ventoy</strong> to create a bootable USB drive from the downloaded ISO file.</li>
+    <li>Insert the USB drive into your computer and follow the tool’s instructions to load the Proxmox ISO.</li>
+</ol>
+
+
+    <hr>
+
+    <h3>Step 4: Boot From USB</h3>
+    <ol>
+        <li>Insert the bootable USB into the target machine.</li>
+        <li>Enter the BIOS/UEFI setup by pressing the appropriate key during boot (e.g., F2, F12, DEL, or ESC).</li>
+        <li>Set the USB drive as the primary boot device.</li>
+        <li>Save changes and reboot the machine.</li>
+    </ol>
+
+    <hr>
+
+    <h3>Step 5: Install Proxmox VE</h3>
+    <ol>
+        <li>Select <strong>Install Proxmox VE</strong> from the boot menu.</li>
+        <li>Read and agree to the license agreement.</li>
+        <li>Select the target disk for installation:
+            <ul>
+                <li>If you have multiple disks, choose the one where Proxmox will be installed.</li>
+                <li>Optionally configure ZFS for RAID setups.</li>
+            </ul>
+        </li>
+        <li>Configure the following:
+            <ul>
+                <li><strong>Country, time zone, and keyboard layout.</strong></li>
+                <li><strong>Root password:</strong> This is used for administrative tasks. Write it down for future reference.</li>
+                <li><strong>Email address:</strong> Optional but useful for notifications.</li>
+            </ul>
+        </li>
+        <li>Set up the network:
+            <ul>
+                <li>Assign a static IP address, subnet mask, and gateway.</li>
+                <li>Ensure the hostname is unique within your network.</li>
+            </ul>
+        </li>
+    </ol>
+
+    <hr>
+
+    <h3>Step 6: First Login</h3>
+    <ol>
+        <li>After installation, remove the USB drive and reboot the system.</li>
+        <li>Access Proxmox from a web browser by navigating to: 
+            <code>https://&lt;your-server-ip&gt;:8006</code>
+            <ul>
+                <li>The ":8006" specifies the port number required.</li>
+                <li>The IP address is displayed on the Proxmox server login screen during boot.</li>
+            </ul>
+        </li>
+        <li>Log in using:
+            <ul>
+                <li><strong>Username:</strong> root</li>
+                <li><strong>Password:</strong> The one set during installation. <em>(I HOPE YOU WROTE IT DOWN.)</em></li>
+            </ul>
+        </li>
+    </ol>
+
+    <hr>
+
+    <h3>Step 7: Update and Configure</h3>
+    <ol>
+        <li>Update Proxmox to the latest packages:
+            <code>apt update && apt full-upgrade -y</code>
+        </li>
+        <li>Add the Proxmox VE no-subscription repository to avoid update issues:
+            <pre><code>echo "deb http://download.proxmox.com/debian/pve bookworm pve-no-subscription" > /etc/apt/sources.list.d/pve-no-subscription.list</code></pre>
+            <code>apt update && apt full-upgrade -y</code>
+        </li>
+        <li>Reboot the system:
+            <code>reboot</code>
+        </li>
+    </ol>
+
+    <hr>
+
+    <h3>Step 8: Optional Configurations</h3>
+    <ul>
+        <li>Configure storage for virtual machines and containers.</li>
+        <li>Set up automated backups.</li>
+        <li>Install additional features such as clustering or GPU passthrough.</li>
+		<li>Look for future updates on how to configure optional configurations.</li>
+		<li>If you have any questions or need assistance, don't hesitate to contact me at <a href="mailto:giga8320@gmail.com">giga8320@gmail.com</a> with the subject line "Proxmox Install."</li>
+    </ul>
+</section>
+
+
+<section id="contact" style="text-align: center; padding: 2rem 0; margin-bottom: 0;">
+    <hr>
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:b.wilson32129@gmail.com">b.wilson32129@gmail.com</a></p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/brian-r-wilson/" target="_blank">Brian Wilson</a></p>
+</section>
+
+<footer style="text-align: center; padding: 1rem 0; margin-top: 0; width: auto;">
+    <img src="GIGATECH.png" alt="Gigatech Logo" style="width: 150px; display: block; margin: 0 auto; margin-bottom: 5px;">
+    <p>&copy; 2025 GIGATECH. All rights reserved.</p>
+</footer>
+
+
+</body>
+</html>
