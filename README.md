@@ -1,6 +1,7 @@
 # Prox-Instaall
 Proxmox Install Page
 Prox-Install
+Prox-Install
 
 Welcome to Prox-Install! This project is designed to streamline and simplify the process of setting up proxy configurations, offering a user-friendly interface for hassle-free installation.
 
@@ -52,6 +53,16 @@ CSS3: For styling and layout design.
 
 JavaScript: For dynamic functionalities.
 
+Skills Used
+
+Web Development: Creating responsive and user-friendly interfaces.
+
+Version Control: Managing code with Git and GitHub.
+
+UI/UX Design: Crafting intuitive layouts and enhancing user experiences.
+
+Network Configuration: Understanding and implementing proxy settings.
+
 Contributions
 
 Contributions are welcome! If you have suggestions or enhancements, feel free to:
@@ -78,8 +89,7 @@ This project is licensed under the MIT License. See the LICENSE file for details
 
 Support
 
-If you encounter any issues or have questions, please open an issue in the repository or contact us at support@gigatech832065.com.
+If you encounter any issues or have questions, please open an issue in the repository or contact us at giga832065@gmail.com.
 
 Thank you for using Prox-Install! We hope it makes your proxy setup experience smoother and more efficient.
-
 
